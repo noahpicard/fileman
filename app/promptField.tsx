@@ -7,6 +7,26 @@ const PromptField : FC = () => {
   const [loading, setLoading] = useState(false);
   const [mostRecentPrompts, setMostRecentPrompts] = useState<string[]>([]);
 
+  const updateSecondMostRecentPrompt = useCallback(() => {
+    fetch('/api/read_recent_prompt?index=1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => {
+      console.log("response", response);
+      return response.json();
+    }).then((data) => {
+      console.log("response body", data);
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
+  }, []);
+
+  useEffect(() => {
+    updateSecondMostRecentPrompt();
+  }, []);
+
   const updateRecentPrompts = useCallback(() => {
     fetch('/api/read_recent_prompts', {
       method: 'GET',
@@ -51,6 +71,7 @@ const PromptField : FC = () => {
       setPrompt("");
       setLoading(false);
       updateRecentPrompts();
+      updateSecondMostRecentPrompt();
     });
 
   }, [prompt]);
