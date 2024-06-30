@@ -6,7 +6,10 @@ export async function PUT(request: NextRequest) {
 
     const data = await request.json();
 
-    const prompt = data?.['prompt'] as string;
+    let prompt = data?.['prompt'] as string;
+    if (prompt.length === 6) {
+        prompt = prompt + " ";
+    }
     const folder = data?.['folder'] as string || "prompts";
     const date = new Date().toISOString();
 
