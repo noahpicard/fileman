@@ -1,21 +1,30 @@
 import PromptField from "./promptField";
+import PromptFolderField from "./promptFolderField";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        u rock.
+      <div className="z-10 w-full text-center max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+        {"prompt like there's no tomorrow"}
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        yeah.
+      <div className="m-4 flex flex-col gap-4">
+        <PromptFolderField folder="dial_0" />
+        <PromptFolderField folder="dial_1" />
+        <PromptFolderField folder="dial_2" />
+        <PromptFolderField folder="dial_3" />
+        <PromptFolderField folder="dial_4" />
+        <PromptFolderField folder="dial_5" />
+        <PromptFolderField folder="dial_6" />
+        <PromptFolderField folder="dial_7" />
+      </div>
+      
+
+      <div className="mb-32 mt-8 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+      {"Made with ❤️ by Noah Picard & Sebastian Graf"}
       </div>
 
-      <PromptField />
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-       u heard me.
-      </div>
+      {/* <PromptField /> */}
     </main>
   );
 }
